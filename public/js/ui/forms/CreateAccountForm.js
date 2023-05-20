@@ -1,7 +1,3 @@
-/**
- * Класс CreateAccountForm управляет формой
- * создания нового счёта
- * */
 class CreateAccountForm extends AsyncForm {
   /**
    * Создаёт счёт с помощью Account.create и закрывает
@@ -9,6 +5,8 @@ class CreateAccountForm extends AsyncForm {
    * и сбрасывает форму
    * */
   onSubmit(data) {
-
+    Account.create(data);
+    App.getModal('createAccount').close();
+    App.update();
   }
 }
