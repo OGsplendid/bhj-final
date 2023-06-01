@@ -21,9 +21,14 @@ class AccountsWidget {
 
   update() {
     if (User.current()) {
-      Account.list(User.current());
-      this.clear();
-      this.renderItem();
+      Account.list(User.current(), (err, response) => {
+        if (!err) {
+          this.clear();
+          this.renderItem(response.account);
+        } else {
+          console.log(err);
+        }
+      });
     }
   }
 
@@ -38,7 +43,7 @@ class AccountsWidget {
     let accounts = [...document.getElementsByClassName('account')];
     accounts.forEach(el => el.classList.remove('.active'));
     element.classList.add('active');
-    App.showPage('transactions', { account_id: User.current().id })
+    App.showPage('transactions', { account_id: User.current().id });
   }
 
   getAccountHTML(item){
@@ -50,6 +55,6 @@ class AccountsWidget {
   }
 
   renderItem(data){
-    // this.element.insertAdjacentElement('beforeEnd', this.getAccountHTML(data));
+    this.element.insertAdjacentElement('beforeEnd', this.getAccountHTML(data));
   }
 }

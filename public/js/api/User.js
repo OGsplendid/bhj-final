@@ -17,13 +17,13 @@ class User {
     createRequest({
       url: `${this.URL}/current`,
       method: 'GET',
-      callback(err, response) {
+      callback: (err, response) => {
         if (response && response.user) {
           this.setCurrent(response.user);
         } else {
           this.unsetCurrent();
         };
-        callback;
+        callback(err);
       }
     });
   }
@@ -34,11 +34,11 @@ class User {
       method: 'POST',
       responseType: 'json',
       data,
-      callback(err, response) {
+      callback: (err, response) => {
         if (response && response.user) {
           this.setCurrent(response.user);
         }
-        callback(err, response);
+        callback(err);
       }
     });
   }
@@ -53,12 +53,12 @@ class User {
         if (response && response.user) {
           this.setCurrent(response.user);
         };
-        callback;
+        callback(err);
       }
     });
   }
 
-  static logout(callback) {
+  static logout() {
     createRequest({
       url: this.URL + '/logout',
       method: 'POST',
@@ -67,7 +67,6 @@ class User {
         if (response && response.success) {
           this.unsetCurrent();
         }
-        callback;
       }
     });
   }
