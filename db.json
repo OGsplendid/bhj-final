@@ -200,6 +200,18 @@
       "email": "denis2@demo.ru",
       "password": "1002",
       "id": "9vp9m3i8li60zl1p"
+    },
+    {
+      "name": "123456",
+      "email": "123456@demo.ru",
+      "password": "demo",
+      "id": "9vp9m1qslkh0oirv"
+    },
+    {
+      "name": "Denis",
+      "email": "denis11111@demo.ru",
+      "password": "11111",
+      "id": "9vp9m738lktm1hrq"
     }
   ],
   "accounts": [
@@ -347,6 +359,41 @@
       "name": "sdsdagh",
       "user_id": "9vp9m65cli5wq1p0",
       "id": "9vp9m6cli64r7q4"
+    },
+    {
+      "name": "smth",
+      "user_id": "9vp9m1qslkh0oirv",
+      "id": "9vp9m4t0lkh2fg0l"
+    },
+    {
+      "name": "Aim",
+      "user_id": "9vp9m1qslkh0oirv",
+      "id": "9vp9m3bolkh36bs5"
+    },
+    {
+      "name": "Salary",
+      "user_id": "9vp9m738lktm1hrq",
+      "id": "9vp9m33olktmsaou"
+    },
+    {
+      "name": "Flat",
+      "user_id": "9vp9m738lktm1hrq",
+      "id": "9vp9m7gslktnfmtq"
+    },
+    {
+      "name": "take",
+      "user_id": "9vp9m738lktm1hrq",
+      "id": "9vp9m6islktniuhb"
+    },
+    {
+      "name": "smthing",
+      "user_id": "9vp9m738lktm1hrq",
+      "id": "9vp9m6colktnkbz0"
+    },
+    {
+      "name": "ываыв",
+      "user_id": "9vp9m738lktm1hrq",
+      "id": "9vp9m74klktq1omd"
     }
   ],
   "transactions": [
@@ -484,6 +531,69 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "9vp9m5oglkh2f1cu",
+      "type": "income",
+      "name": "sadf",
+      "sum": 15,
+      "account_id": "undefined",
+      "user_id": "9vp9m1qslkh0oirv",
+      "created_at": "2023-07-24T16:11:18.557Z"
+    },
+    {
+      "id": "9vp9m2zklktn0tvs",
+      "type": "income",
+      "name": "укпу",
+      "sum": 130,
+      "account_id": "undefined",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T11:21:21.735Z"
+    },
+    {
+      "id": "9vp9m694lktn1m47",
+      "type": "income",
+      "name": "sdagf",
+      "sum": 50,
+      "account_id": "undefined",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T11:21:58.327Z"
+    },
+    {
+      "id": "9vp9m1cklktngg4w",
+      "type": "income",
+      "name": "Cashback",
+      "sum": 800,
+      "account_id": "undefined",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T11:33:30.415Z"
+    },
+    {
+      "id": "9vp9m5i8lktp4j8r",
+      "type": "income",
+      "name": "43346643",
+      "sum": 34634,
+      "account_id": "undefined",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T12:20:13.802Z"
+    },
+    {
+      "id": "9vp9m5iklktsj1lb",
+      "type": "income",
+      "name": "miracleworkerog",
+      "sum": 130,
+      "account_id": "9vp9m7gslktnfmtq",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T13:55:29.614Z"
+    },
+    {
+      "id": "9vp9mj0lktsjnfv",
+      "type": "income",
+      "name": "asffas",
+      "sum": 46,
+      "account_id": "9vp9m33olktmsaou",
+      "user_id": "9vp9m738lktm1hrq",
+      "created_at": "2023-08-02T13:55:57.930Z"
     }
   ]
 }

@@ -18,7 +18,7 @@ class TransactionsPage {
         throw new Error('something went wrong');
       }
     }
-    this.lastOptions;
+    this.lastOptions = null;
     this.registerEvents();
   }
 
@@ -36,10 +36,13 @@ class TransactionsPage {
    * TransactionsPage.removeAccount соответственно
    * */
   registerEvents() {
-    document.getElementsByClassName('remove-account')[0].onclick = () => this.removeAccount();
-    let transactions = [...document.getElementsByClassName('.transaction__remove')];
-    for (let i = 0; i < transactions.length; i++) {
-      transactions[i].onclick = () => removeTransaction(transactions[i].dataset.id);
+    let removeBtns = document.querySelectorAll('.remove-account');
+    for (let btn of removeBtns) {
+      btn.onclick = () => this.removeAccount();
+    }
+    let transactions = document.querySelectorAll('.transaction__remove');
+    for (let transaction of transactions) {
+      transaction.onclick = () => this.removeTransaction(transaction.dataset.id);
     };
   }
 
@@ -56,15 +59,18 @@ class TransactionsPage {
     if (!this.lastOptions) {
       return;
     }
-    Account.remove(this.lastOptions, (err) => {
-      let confirmation = prompt('Вы действительно хотите удалить счёт?');
-      if (!err && confirmation) {
-        App.updateWidgets();
-        App.updateForms();
-      } else {
-        console.log(err);
-      }
-    })
+    let confirmation = confirm('Вы действительно хотите удалить счёт?');
+    if (confirmation) {
+      Account.remove(this.lastOptions, (err) => {
+        if (!err) {
+          App.updateWidgets();
+          App.updateForms();
+        } else {
+          console.log(err);
+        }
+      })
+      this.clear();
+    }
   }
 
   /**
@@ -74,14 +80,16 @@ class TransactionsPage {
    * либо обновляйте текущую страницу (метод update) и виджет со счетами
    * */
   removeTransaction(id) {
-    Transaction.remove(this.lastOptions, (err) => {
-      let confirmation = prompt('Вы действительно хотите удалить эту транзакцию?');
-      if (!err && confirmation) {
-        App.update();
-      } else {
-        console.log(err);
-      }
-    })
+    let confirmation = confirm('Вы действительно хотите удалить эту транзакцию?');
+    if (confirmation) {
+      Transaction.remove(id, (err) => {
+        if (!err) {
+          App.update();
+        } else {
+          console.log(err);
+        }
+      })
+    }
   }
 
   /**
@@ -95,11 +103,12 @@ class TransactionsPage {
       return;
     }
     this.lastOptions = options;
-    Account.get(id, (err, response) => {
+    Account.get(options[account_id], (err, response) => {
+      console.log(err, response);
       if (!err) {
-        this.renderTitle(response.name);
+        this.renderTitle(response.data.name);
         Transaction.list(lastOptions, (err, response) => {
-          TransactionsPage.renderTransactions(response);
+          TransactionsPage.renderTransactions(response.data);
         });
       } else {
         console.log(err);
@@ -122,7 +131,7 @@ class TransactionsPage {
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle(name){
-    document.getElementsByClassName('content-title')[0].textContent = name;
+    document.querySelector('.content-title').textContent = name;
   }
 
   /**
@@ -173,10 +182,11 @@ class TransactionsPage {
    * Отрисовывает список транзакций на странице
    * используя getTransactionHTML
    * */
-  renderTransactions(data){
-    const mainPage = document.getElementsByClassName('content')[0];
+  renderTransactions(data) {
+    console.log(data);
+    const mainPage = document.querySelector('.content');
     for (let i = 0; i < data.length; i++) {
-      mainPage.insertAdjacentHTML('beforeend', data[i].getTransactionHTML);
+      mainPage.insertAdjacentHTML('beforeend', this.getTransactionHTML(data[i]));
     }
   }
 }

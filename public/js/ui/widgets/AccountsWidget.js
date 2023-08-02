@@ -24,7 +24,7 @@ class AccountsWidget {
       Account.list(User.current(), (err, response) => {
         if (!err) {
           this.clear();
-          this.renderItem(response.account);
+          this.renderItem(response.data);
         } else {
           console.log(err);
         }
@@ -46,7 +46,7 @@ class AccountsWidget {
     App.showPage('transactions', { account_id: User.current().id });
   }
 
-  getAccountHTML(item){
+  getAccountHTML(item) {
     let newAccount = document.createElement('li');
     newAccount.className = 'account';
     newAccount.dataset.id = item.id;
@@ -54,7 +54,9 @@ class AccountsWidget {
     return newAccount;
   }
 
-  renderItem(data){
-    this.element.insertAdjacentElement('beforeEnd', this.getAccountHTML(data));
+  renderItem(data) {
+    for (let account of data) {
+      this.element.insertAdjacentElement('beforeEnd', this.getAccountHTML(account));
+    }
   }
 }

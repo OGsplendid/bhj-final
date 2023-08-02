@@ -6,7 +6,7 @@ const createRequest = (options = {}) => {
     for (const key in data) {
       url += `${key}=${data[key]}&`;
     }
-    url = url.slice(0, options.url.length - 1);
+    url = url.slice(0, url.length - 1);
     try {
       xhr.open(method, url);
       xhr.responseType = 'json';
@@ -29,10 +29,8 @@ const createRequest = (options = {}) => {
   }
   xhr.onloadend = () => {
     if (xhr.response && xhr.response.success) {
-      console.log(xhr.response);
       callback(null, xhr.response);
     } else if (xhr.response && xhr.response.error) {
-      console.log(xhr.response);
       callback(xhr.response.error);
     }
   };
