@@ -18,12 +18,23 @@ class CreateTransactionForm extends AsyncForm {
    * */
   renderAccountsList() {
     Account.list(User.current(), (err, response) => {
-      console.log(response.data);
       if (!err) {
-        const selectGroup = document.querySelector('#income-accounts-list');
+        console.log(response.data);
+        const selectGroupIncome = this.element.querySelector('#income-accounts-list');
+        const selectGroupExpense = this.element.querySelector('#expense-accounts-list');
         for (let item of response.data) {
-          selectGroup.insertAdjacentHTML('beforeend', `<option value="${item.id}">${item.name}</option>`)
+          let option = new Option(item.name, item.id);
+          console.log(item);
+          console.log(option);
+          console.log(selectGroupIncome);
+          selectGroupIncome.append(option);
+          console.log(selectGroupIncome.options);
         }
+        for (let item of response.data) {
+          let option = new Option(item.name, item.id);
+          selectGroupExpense.append(option);
+        }
+        console.log(selectGroupIncome.options, selectGroupExpense.options);
       } else {
         console.log(err);
       }

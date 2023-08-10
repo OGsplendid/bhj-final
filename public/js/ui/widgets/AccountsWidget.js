@@ -15,7 +15,7 @@ class AccountsWidget {
     document.getElementsByClassName('create-account')[0].onclick = () => App.getModal('createAccount').open();
     let accounts = [...document.getElementsByClassName('account')];
     for (let i = 0; i < accounts.length; i++) {
-      accounts[i].onclick = () => AccountsWidget.onSelectAccount(accounts[i]);
+      accounts[i].onclick = () => this.element.onSelectAccount(accounts[i]);
     }
   }
 

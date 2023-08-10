@@ -212,6 +212,12 @@
       "email": "denis11111@demo.ru",
       "password": "11111",
       "id": "9vp9m738lktm1hrq"
+    },
+    {
+      "name": "Denis",
+      "email": "00000@demo.ru",
+      "password": "00000",
+      "id": "9vp9m45oll59vbnw"
     }
   ],
   "accounts": [
@@ -394,6 +400,31 @@
       "name": "ываыв",
       "user_id": "9vp9m738lktm1hrq",
       "id": "9vp9m74klktq1omd"
+    },
+    {
+      "name": "Work",
+      "user_id": "9vp9m45oll59vbnw",
+      "id": "9vp9m4t0ll5a3dsv"
+    },
+    {
+      "name": "Flat bills",
+      "user_id": "9vp9m45oll59vbnw",
+      "id": "9vp9m344ll5anvt2"
+    },
+    {
+      "name": "DB",
+      "user_id": "9vp9m45oll59vbnw",
+      "id": "9vp9m5l8ll5ap0al"
+    },
+    {
+      "name": "Savings",
+      "user_id": "9vp9m45oll59vbnw",
+      "id": "9vp9m3egll5axzfu"
+    },
+    {
+      "name": "Found treasures",
+      "user_id": "9vp9m45oll59vbnw",
+      "id": "9vp9m3uoll5bc73x"
     }
   ],
   "transactions": [
@@ -594,6 +625,15 @@
       "account_id": "9vp9m33olktmsaou",
       "user_id": "9vp9m738lktm1hrq",
       "created_at": "2023-08-02T13:55:57.930Z"
+    },
+    {
+      "id": "9vp9m4l4ll5dh74i",
+      "type": "income",
+      "name": "March",
+      "sum": 4500,
+      "account_id": "9vp9m344ll5anvt2",
+      "user_id": "9vp9m45oll59vbnw",
+      "created_at": "2023-08-10T16:27:23.346Z"
     }
   ]
 }
